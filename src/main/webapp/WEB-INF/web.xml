@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+
+	<display-name>Java File Manager</display-name>
+
+
+	<context-param> <description>is prepended to file paths</description>
+		<param-name>filebase</param-name> <param-value>C:/pproject</param-value> </context-param>
+
+	<context-param> <description>seperate with commas</description> <param-name>dirmappings</param-name>
+		<param-value>/=C:\Tomcat\webapps\ROOT,apache=D:/apache/htdocs</param-value>
+		</context-param>
+
+	<servlet>
+		<servlet-name>Controller</servlet-name>
+		<servlet-class>bsuir.backup.manager.servlets.Controller</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/p/*</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<security-role>
+		<role-name>jfm</role-name>
+	</security-role>
+
+</web-app>
